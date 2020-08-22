@@ -1,0 +1,3 @@
+*.mha
+*.pyc
+__pycache__/

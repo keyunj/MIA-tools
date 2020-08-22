@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Laboratory\Pro.Feng\Documents\coronary - animation\code\CMakeFiles\eaad6a8f2c1a09d8f645c577bbe920fd\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F080AD77-5B75-35BF-BA83-E7B278332646}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

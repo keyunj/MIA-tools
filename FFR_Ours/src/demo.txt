@@ -1,0 +1,22 @@
+#include "FFRCore/FFRCore.h"
+
+void SmartCoronaryWindow::ComputeFFR()
+{
+	double leftOstium[3], rightOstium[3];
+	landmarkWidget[SmartCoronary::LEFT_CORONARY_OSTIUM].first->GetCenter(leftOstium);
+	landmarkWidget[SmartCoronary::RIGHT_CORONARY_OSTIUM].first->GetCenter(rightOstium);
+	vtkPolyData* centerlinePoly = centerlineTube->GetOutput(0);
+	vtkSmartPointer<vtkDoubleArray> ffrArray = vtkSmartPointer<vtkDoubleArray>::New();
+	ComputeFFRCore(centerlineModel, centerlinePoly, ffrArray, leftOstium, rightOstium);
+	centerlinePoly->GetPointData()->SetScalars(ffrArray);
+	centerlineTube->SetUpdateSegment(-1);
+	centerlineTube->UpdateOutput0Off();
+	centerlineTube->Update();
+	clLookupTable->SetTableRange(0.5, 1.0);
+	clLookupTable->SetValueRange(1.0, 1.0);
+	clLookupTable->SetHueRange(0.0, 0.6667);
+	clLookupTable->SetSaturationRange(1.0, 1.0);
+	clLookupTable->SetRampToLinear();
+	clLookupTable->Build();
+	this->ui->view4->GetInteractor()->GetRenderWindow()->Render();
+}
